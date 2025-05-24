@@ -30,7 +30,7 @@ resources:
 type: custom:prusalink-card
 entity: sensor.completeness
 title: Prusa CORE One
-extra_info: Test
+extra_info: Testinfo
 temperature:
   nozzle:
     decimals: 0
