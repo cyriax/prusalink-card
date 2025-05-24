@@ -22,7 +22,7 @@ A simple Lovelace card to show PrusaLink data via a Home Assistant entity.
 resources:
   - url: /local/prusalink-card.js
     type: module
-
+```
 
 ## Usage
 
@@ -45,3 +45,4 @@ temperature:
 fan:
   hotend: sensor.fan1
   enclosure: sensor.fan2
+```
