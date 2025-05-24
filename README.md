@@ -1,5 +1,7 @@
 # PrusaLink Card
 
+DISCLAIMER: This is all AI-generated to this point to get me something to start and learn - so not worth downloading right now :)
+
 A simple Lovelace card to show PrusaLink data via a Home Assistant entity.
 
 ![screenshot](https://via.placeholder.com/600x200?text=PrusaLink+Card)
