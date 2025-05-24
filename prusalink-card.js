@@ -13,17 +13,40 @@ class PrusaLinkCard extends HTMLElement {
 
     const entity = this._hass.states[this.config.entity];
     const state = entity ? entity.state : 'Unavailable';
+    const sensors = this.config.printer_sensors || {};
 
-    this.innerHTML = `
+    let html = `
       <ha-card header="${this.config.title || 'PrusaLink Card'}">
+        <style>
+          .container {display: flex; justify-content: space-between; padding: 4px 0; font-size: 14px;}
+          .sensor-label { color: var(--secondary-text-color); }
+          .sensor-value { font-weight: bold; }
+        </style>
         <div style="padding: 16px;">
           <p><strong>Entity:</strong> ${this.config.entity}</p>
           <p><strong>State:</strong> ${state}</p>
           <p><strong>Info:</strong> ${this.config.extra_info || 'No extra info'}</p>
-        </div>
-      </ha-card>
+        </div>   
     `;
+
+    for (const [key, sensor] of Object.entries(sensors)) {
+      const stateObj = this._hass.states[sensor.entity];
+      const value = stateObj ? stateObj.state : 'Unavailable';
+      const unit = sensor.unit || (stateObj?.attributes.unit_of_measurement || '');
+
+      html += `
+        <div class="container">
+          <div class="sensor-label">${key.replace(/_/g, ' ')}</div>
+          <div class="sensor-value">${value} ${unit}</div>
+        </div>
+      `;
+    }
+
+    html += `</div></ha-card>`;
+
+    this.innerHTML = html;
   }
+
 
   getCardSize() {
     return 1;
