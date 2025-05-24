@@ -22,3 +22,26 @@ A simple Lovelace card to show PrusaLink data via a Home Assistant entity.
 resources:
   - url: /local/prusalink-card.js
     type: module
+
+
+## Usage
+
+```yaml
+type: custom:prusalink-card
+entity: sensor.completeness
+title: Prusa CORE One
+extra_info: Test
+temperature:
+  nozzle:
+    decimals: 0
+    icon: mdi:printer-3d-nozzle-heat-outline
+    actual: sensor.nozzle_is
+    target: sensor.nozzle_target
+  bed:
+    decimals: 0
+    icon: mdi:artboard
+    actual: sensor.bed_is
+    target: sensor.bed_target
+fan:
+  hotend: sensor.fan1
+  enclosure: sensor.fan2
