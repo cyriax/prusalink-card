@@ -1,0 +1,9 @@
+{
+  "name": "PrusaLink Card",
+  "content_in_root": true,
+  "filename": "prusalink-card.js",
+  "render_readme": true,
+  "description": "A Lovelace card for displaying PrusaLink entity data in Home Assistant.",
+  "type": "plugin",
+  "domains": ["lovelace"]
+}
